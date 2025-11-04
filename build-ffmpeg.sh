@@ -15,7 +15,7 @@ echo "============================================="
 # Clone FFmpeg if not already cloned
 if [ ! -d "${FFMPEG_DIR}" ]; then
     echo "Cloning FFmpeg repository..."
-    git clone https://github.com/FFmpeg/FFmpeg.git "${FFMPEG_DIR}"
+    git clone --depth 1 https://github.com/FFmpeg/FFmpeg.git "${FFMPEG_DIR}"
 fi
 
 cd "${FFMPEG_DIR}"
