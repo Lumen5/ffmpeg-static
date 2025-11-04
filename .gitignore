@@ -1,0 +1,11 @@
+# Build output
+output/
+
+# Docker
+.docker/
+
+# OS files
+.DS_Store
+*.swp
+*.swo
+*~
