@@ -60,35 +60,6 @@ The libraries are built with the following configuration:
 - **Debug symbols disabled**
 - **Optimized for library usage**
 
-## Output Structure
-
-After building, your directory will look like:
-
-```
-beamcoder-ffmpeg-static/
-├── build.sh              # Main build script
-├── build-ffmpeg.sh       # Docker build script
-├── Dockerfile            # Docker image definition
-├── README.md            # This file
-└── output/
-    ├── include/         # FFmpeg header files
-    │   ├── libavcodec/
-    │   ├── libavdevice/
-    │   ├── libavfilter/
-    │   ├── libavformat/
-    │   ├── libavutil/
-    │   ├── libswresample/
-    │   └── libswscale/
-    └── lib/             # Static library files
-        ├── libavcodec.a
-        ├── libavdevice.a
-        ├── libavfilter.a
-        ├── libavformat.a
-        ├── libavutil.a
-        ├── libswresample.a
-        └── libswscale.a
-```
-
 ## Clean Build
 
 To perform a clean build, remove the output directory:
