@@ -3,12 +3,13 @@
 set -e
 
 # Configuration
-FFMPEG_VERSION="${FFMPEG_VERSION:-n7.1}"
+FFMPEG_VERSION="${FFMPEG_VERSION:-n5.1.4}"
 OUTPUT_DIR="$(pwd)/output"
 DOCKER_IMAGE="ffmpeg-builder:latest"
+PLATFORM="linux/amd64"
 
 echo "============================================="
-echo "FFmpeg Static Library Builder for linux/amd64"
+echo "FFmpeg Static Library Builder for ${PLATFORM}"
 echo "============================================="
 echo "FFmpeg Version: ${FFMPEG_VERSION}"
 echo "Output Directory: ${OUTPUT_DIR}"
@@ -16,7 +17,7 @@ echo ""
 
 # Build Docker image
 echo "Building Docker image..."
-docker build --platform linux/amd64 -t "${DOCKER_IMAGE}" .
+docker build --platform ${PLATFORM} -t "${DOCKER_IMAGE}" .
 
 # Create output directory
 mkdir -p "${OUTPUT_DIR}"
@@ -24,7 +25,7 @@ mkdir -p "${OUTPUT_DIR}"
 # Run the build in Docker
 echo ""
 echo "Running FFmpeg build in Docker container..."
-docker run --platform linux/amd64 --rm \
+docker run --platform ${PLATFORM} --rm \
     -v "$(pwd)/build-ffmpeg.sh:/build/build-ffmpeg.sh:ro" \
     -v "${OUTPUT_DIR}:/build/output" \
     -e FFMPEG_VERSION="${FFMPEG_VERSION}" \

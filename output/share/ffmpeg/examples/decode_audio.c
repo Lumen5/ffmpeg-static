@@ -127,10 +127,6 @@ int main(int argc, char **argv)
     outfilename = argv[2];
 
     pkt = av_packet_alloc();
-    if (!pkt) {
-        fprintf(stderr, "Could not allocate AVPacket\n");
-        exit(1); /* or proper cleanup and returning */
-    }
 
     /* find the MPEG audio decoder */
     codec = avcodec_find_decoder(AV_CODEC_ID_MP2);
@@ -164,7 +160,7 @@ int main(int argc, char **argv)
     }
     outfile = fopen(outfilename, "wb");
     if (!outfile) {
-        fprintf(stderr, "Could not open %s\n", outfilename);
+        av_free(c);
         exit(1);
     }
 

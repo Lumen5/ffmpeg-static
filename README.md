@@ -1,10 +1,10 @@
-# FFmpeg Static Library Builder for linux/amd64
+# FFmpeg Static Library Builder for linux/amd64 (or other platform, if PLATFORM ENV is specified)
 
 This project builds FFmpeg static libraries (`.a` files) for linux/amd64 architecture from source. It uses Docker to provide a consistent cross-platform build environment, allowing you to build Linux binaries from macOS.
 
 ## Prerequisites
 
-- Docker (with support for linux/amd64 platform)
+- Docker (with support for linux/amd64 platform by default)
 - Bash shell
 - Internet connection (to clone FFmpeg repository)
 
@@ -45,15 +45,9 @@ You can specify a different FFmpeg version by setting the `FFMPEG_VERSION` envir
 ```bash
 # Build a specific release version
 FFMPEG_VERSION=n6.1 ./build.sh
-
-# Build from master branch
-FFMPEG_VERSION=master ./build.sh
-
-# Build from a specific commit
-FFMPEG_VERSION=abc123def ./build.sh
 ```
 
-Default version: `n7.1` (FFmpeg 7.1)
+Default version: `n5.1.4` (FFmpeg 5.1.4)
 
 ## Build Configuration
 
@@ -106,9 +100,9 @@ rm -rf output/
 
 ## Platform Notes
 
-- **Target Platform**: linux/amd64
+- **Target Platform**: linux/amd64 (default)
 - **Build Platform**: Can be run from macOS (including M1/M2/M3/M4) or Linux
-- **Docker Platform**: The build uses `--platform linux/amd64` to ensure consistent output regardless of host architecture
+- **Docker Platform**: The build uses `--platform ${PLATFORM}` to ensure consistent output regardless of host architecture
 
 ## Troubleshooting
 

@@ -1,29 +1,8 @@
 #!/bin/bash
 
 set -e
-
-# Configuration
-FFMPEG_VERSION="${FFMPEG_VERSION:-n7.1}"  # Can be a tag, branch, or commit hash
-BUILD_DIR="/build"
-FFMPEG_DIR="${BUILD_DIR}/FFmpeg"
+cd "${BUILD_DIR}/FFmpeg"
 OUTPUT_DIR="${BUILD_DIR}/output"
-
-echo "============================================="
-echo "Building FFmpeg ${FFMPEG_VERSION} for linux/amd64"
-echo "============================================="
-
-# Clone FFmpeg if not already cloned
-if [ ! -d "${FFMPEG_DIR}" ]; then
-    echo "Cloning FFmpeg repository..."
-    git clone --depth 1 https://github.com/FFmpeg/FFmpeg.git "${FFMPEG_DIR}"
-fi
-
-cd "${FFMPEG_DIR}"
-
-# Checkout the specified version
-echo "Checking out version ${FFMPEG_VERSION}..."
-git fetch --all --tags
-git checkout "${FFMPEG_VERSION}"
 
 # Clean previous builds
 echo "Cleaning previous builds..."
@@ -44,7 +23,10 @@ echo "Configuring FFmpeg..."
     --enable-pic \
     --disable-debug \
     --disable-stripping \
-    --extra-cflags="-fPIC"
+    --disable-asm \
+    --extra-cflags="-fPIC -DPIC" \
+    --extra-cxxflags="-fPIC -DPIC" \
+    --extra-ldflags="-fPIC -Wl,--Bsymbolic -Wl,--allow-multiple-definition"
 
 # Build FFmpeg
 echo "Building FFmpeg (this may take a while)..."

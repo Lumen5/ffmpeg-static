@@ -16,4 +16,9 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /build
 
+ENV FFMPEG_VERSION=n5.1.4
+ENV BUILD_DIR=/build
+
+RUN git clone --depth 1 --branch ${FFMPEG_VERSION} https://github.com/FFmpeg/FFmpeg.git
+
 # The build script will be mounted and run from the host
