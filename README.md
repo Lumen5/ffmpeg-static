@@ -31,6 +31,7 @@ The build process will generate the following static libraries:
 - `libavfilter.a` - Audio/video filtering library
 - `libavformat.a` - Audio/video container format library
 - `libavutil.a` - Utility library
+- `libpostproc.a` - Video post-processing library
 - `libswresample.a` - Audio resampling library
 - `libswscale.a` - Video scaling and color conversion library
 

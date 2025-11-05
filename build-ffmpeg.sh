@@ -14,6 +14,8 @@ echo "Configuring FFmpeg..."
     --prefix="${OUTPUT_DIR}" \
     --disable-shared \
     --enable-static \
+    --enable-gpl \
+    --enable-postproc \
     --disable-programs \
     --disable-doc \
     --disable-htmlpages \
