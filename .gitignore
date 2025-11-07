@@ -1,6 +1,3 @@
-# Build output
-# output/
-
 # Docker
 .docker/
 
@@ -9,3 +6,6 @@
 *.swp
 *.swo
 *~
+
+# FFMPEG
+FFmpeg/
