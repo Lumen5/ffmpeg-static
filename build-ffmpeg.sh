@@ -30,6 +30,7 @@ if [ "${NATIVE_BUILD}" = "1" ] && [[ "$OSTYPE" == "darwin"* ]]; then
         --enable-static \
         --enable-gpl \
         --enable-postproc \
+        --enable-libvpx \
         --disable-programs \
         --disable-doc \
         --disable-htmlpages \
@@ -50,6 +51,7 @@ else
         --enable-static \
         --enable-gpl \
         --enable-postproc \
+        --enable-libvpx \
         --disable-programs \
         --disable-doc \
         --disable-htmlpages \

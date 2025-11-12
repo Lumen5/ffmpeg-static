@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     libtool \
     wget \
     ca-certificates \
+    libvpx-dev \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /build
