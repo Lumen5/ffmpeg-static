@@ -9,6 +9,6 @@ Version: 59.37.100
 Requires: libswresample >= 4.7.100, libavutil >= 57.28.100
 Requires.private: 
 Conflicts:
-Libs: -L${libdir}  -lavcodec -liconv -lm -framework AudioToolbox -pthread -lz -framework VideoToolbox -framework CoreFoundation -framework CoreMedia -framework CoreVideo -framework CoreServices
+Libs: -L${libdir}  -lavcodec -L/opt/homebrew/Cellar/libvpx/1.15.1/lib -lvpx -lm -L/opt/homebrew/Cellar/libvpx/1.15.1/lib -lvpx -lm -L/opt/homebrew/Cellar/libvpx/1.15.1/lib -lvpx -lm -L/opt/homebrew/Cellar/libvpx/1.15.1/lib -lvpx -lm -liconv -lm -framework AudioToolbox -pthread -lz -framework VideoToolbox -framework CoreFoundation -framework CoreMedia -framework CoreVideo -framework CoreServices
 Libs.private: 
 Cflags: -I${includedir}
